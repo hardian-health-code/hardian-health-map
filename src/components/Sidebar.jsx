@@ -192,7 +192,7 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
         <div style={{ marginTop: '30px', borderTop: '1px solid #eaeaea', paddingTop: '20px', position: 'relative' }}>
           {showFeedbackMenu ? (
             <div className="feedback-menu">
-              
+              <a
                 href={mailtoHref}
                 className="feedback-menu-item"
                 style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', background: 'white', border: '1px solid #e2e8f0', padding: '10px 14px', borderRadius: '6px', fontSize: '0.9rem', color: 'var(--text-dark)', fontWeight: 500 }}
