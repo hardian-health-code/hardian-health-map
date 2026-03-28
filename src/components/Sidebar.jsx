@@ -9,7 +9,16 @@ const ExternalLinkIcon = () => (
 const Sidebar = ({ selectedCountry, data, onClose }) => {
   const [showFeedbackMenu, setShowFeedbackMenu] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const sidebarRef = useRef(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const isoA3 = selectedCountry ? (selectedCountry.ISO_A3 || selectedCountry['ISO3166-1-Alpha-3'] || selectedCountry.ADM0_A3) : null;
   const isoA2 = selectedCountry ? (selectedCountry.ISO_A2 || selectedCountry['ISO3166-1-Alpha-2']) : null;
@@ -50,7 +59,6 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
     : imdrfStatus;
   const mraText = displayData.mra || 'None';
   const hasMra = mraText !== 'None';
-  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
   const feedbackEmail = 'map@hardianhealth.com';
   const feedbackSubject = `Map Feedback: ${displayData.name || 'Unknown Country'}`;
@@ -189,27 +197,32 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
           </div>
         </div>
 
-        <div style={{ marginTop: '30px', borderTop: '1px solid #eaeaea', paddingTop: '20px', position: 'relative' }}>
+        <div style={{ marginTop: '30px', borderTop: '1px solid #eaeaea', paddingTop: '20px' }}>
           {showFeedbackMenu ? (
             <div className="feedback-menu">
-              {!isMobile && (
-                <a
-                  className="feedback-menu-item"
-                  style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', background: 'white', border: '1px solid #e2e8f0', padding: '10px 14px', borderRadius: '6px', fontSize: '0.9rem', color: 'var(--text-dark)', fontWeight: 500 }}
-                  onClick={() => setShowFeedbackMenu(false)}
-                >
-                  <Mail size={16} />
-                  Open Mail App
-                </a>
-              )}
-              {!isMobile && (
-                <button className="feedback-menu-item" onClick={handleGmail}>
-                  <Globe size={16} /> Open in Gmail
+              {!isMobile ? (
+                <>
+                  <a
+                    href={mailtoHref}
+                    className="feedback-menu-item"
+                    style={{ textDecoration: 'none' }}
+                    onClick={() => setShowFeedbackMenu(false)}
+                  >
+                    <Mail size={16} />
+                    Open Mail App
+                  </a>
+                  <button className="feedback-menu-item" onClick={handleGmail}>
+                    <Globe size={16} /> Open in Gmail
+                  </button>
+                  <button className="feedback-menu-item" onClick={handleCopyEmail}>
+                    <Clipboard size={16} /> {copied ? 'Copied Email!' : 'Copy Email Address'}
+                  </button>
+                </>
+              ) : (
+                <button className="feedback-menu-item" onClick={handleCopyEmail}>
+                  <Clipboard size={16} /> {copied ? 'Copied Email!' : 'Copy Email Address'}
                 </button>
               )}
-              <button className="feedback-menu-item" onClick={handleCopyEmail}>
-                <Clipboard size={16} /> {copied ? 'Copied Email!' : 'Copy Email Address'}
-              </button>
               <button className="feedback-menu-item cancel" onClick={() => setShowFeedbackMenu(false)}>
                 Cancel
               </button>
@@ -218,7 +231,6 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
             <button
               className="feedback-btn"
               onClick={() => setShowFeedbackMenu(true)}
-              style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--primary-purple)', border: 'none', padding: '10px 16px', borderRadius: '4px', cursor: 'pointer', fontSize: '0.9em', color: '#fff', width: '100%', justifyContent: 'center', transition: 'all 0.2s', fontWeight: 600 }}
             >
               <MessageSquare size={16} />
               Feedback
