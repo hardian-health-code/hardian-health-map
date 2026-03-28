@@ -193,8 +193,7 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
           {showFeedbackMenu ? (
             <div className="feedback-menu">
               {!isMobile && (
-                
-                  href={mailtoHref}
+                <a
                   className="feedback-menu-item"
                   style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', background: 'white', border: '1px solid #e2e8f0', padding: '10px 14px', borderRadius: '6px', fontSize: '0.9rem', color: 'var(--text-dark)', fontWeight: 500 }}
                   onClick={() => setShowFeedbackMenu(false)}
