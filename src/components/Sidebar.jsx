@@ -13,7 +13,6 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
   const isoA3 = selectedCountry ? (selectedCountry.ISO_A3 || selectedCountry['ISO3166-1-Alpha-3'] || selectedCountry.ADM0_A3) : null;
   const isoA2 = selectedCountry ? (selectedCountry.ISO_A2 || selectedCountry['ISO3166-1-Alpha-2']) : null;
 
-  // Scroll to top when country changes
   useEffect(() => {
     if (sidebarRef.current) {
       sidebarRef.current.scrollTop = 0;
@@ -23,7 +22,7 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
   if (!selectedCountry) return null;
 
   const countryData = data[isoA3];
-  
+
   const displayData = countryData || {
     name: selectedCountry.ADMIN,
     agency: 'Data Not Available',
@@ -41,46 +40,37 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
     mra: 'None'
   };
 
-  // Formatting helpers for memberships
   const mdsapStatus = displayData.mdsapStatus || (displayData.isMDSAP ? 'Participant' : 'Non-Participant');
   const isMdsapActive = mdsapStatus !== 'Non-Participant';
 
   const imdrfStatus = displayData.imdrfStatus || (displayData.isIMDRF ? 'Member' : 'Non-Member');
   const isImdrfActive = imdrfStatus !== 'Non-Member';
-  const imdrfDisplay = (isImdrfActive && displayData.imdrfSince) 
+  const imdrfDisplay = (isImdrfActive && displayData.imdrfSince)
     ? `${imdrfStatus} (since ${displayData.imdrfSince})`
     : imdrfStatus;
 
-  // MRA display logic
   const mraText = displayData.mra || 'None';
   const hasMra = mraText !== 'None';
 
-  // Feedback handlers
-  const getFeedbackData = () => {
-    const subject = `Map Feedback: ${displayData.name || 'Unknown Country'}`;
-    const body = `Country: ${displayData.name || 'Unknown'}\n\nPlease describe the issue or suggestion:\n\n`;
-    const email = 'map@hardianhealth.com';
-    return { email, subject, body };
-  };
+  const feedbackEmail = 'map@hardianhealth.com';
+  const feedbackSubject = `Map Feedback: ${displayData.name || 'Unknown Country'}`;
+  const feedbackBody = `Country: ${displayData.name || 'Unknown'}\n\nPlease describe the issue or suggestion:\n\n`;
+  const mailtoHref = `mailto:${feedbackEmail}?subject=${encodeURIComponent(feedbackSubject)}&body=${encodeURIComponent(feedbackBody)}`;
 
   const handleGmail = () => {
-    const { email, subject, body } = getFeedbackData();
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${feedbackEmail}&su=${encodeURIComponent(feedbackSubject)}&body=${encodeURIComponent(feedbackBody)}`;
     window.open(gmailUrl, '_blank');
     setShowFeedbackMenu(false);
   };
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('map@hardianhealth.com');
+    navigator.clipboard.writeText(feedbackEmail);
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
       setShowFeedbackMenu(false);
     }, 2000);
   };
-
-  const { email, subject, body } = getFeedbackData();
-  const mailtoHref = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
   return (
     <div ref={sidebarRef} className={`sidebar ${selectedCountry ? 'open' : ''}`}>
@@ -89,10 +79,10 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
           <X size={24} />
         </button>
         {isoA2 && isoA2 !== '-99' && (
-          <img 
-            src={`https://flagcdn.com/w80/${isoA2.toLowerCase()}.png`} 
-            alt={`Flag`} 
-            style={{ width: '40px', borderRadius: '4px', marginBottom: '10px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }} 
+          <img
+            src={`https://flagcdn.com/w80/${isoA2.toLowerCase()}.png`}
+            alt="Flag"
+            style={{ width: '40px', borderRadius: '4px', marginBottom: '10px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
           />
         )}
         <h2 className="country-name">{displayData.name || selectedCountry.ADMIN}</h2>
@@ -113,7 +103,7 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
           )}
         </div>
       </div>
-      
+
       <div className="sidebar-content">
         <div className="sidebar-section">
           <h4 className="section-title">
@@ -198,16 +188,18 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
             </div>
           </div>
         </div>
-<div style={{ marginTop: '30px', borderTop: '1px solid #eaeaea', paddingTop: '20px', position: 'relative' }}>
+
+        <div style={{ marginTop: '30px', borderTop: '1px solid #eaeaea', paddingTop: '20px', position: 'relative' }}>
           {showFeedbackMenu ? (
             <div className="feedback-menu">
               
-                className="feedback-menu-item"
                 href={mailtoHref}
-                onClick={() => setShowFeedbackMenu(false)}
+                className="feedback-menu-item"
                 style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', background: 'white', border: '1px solid #e2e8f0', padding: '10px 14px', borderRadius: '6px', fontSize: '0.9rem', color: 'var(--text-dark)', fontWeight: 500 }}
+                onClick={() => setShowFeedbackMenu(false)}
               >
-                <Mail size={16} /> Open Mail App
+                <Mail size={16} />
+                Open Mail App
               </a>
               <button className="feedback-menu-item" onClick={handleGmail}>
                 <Globe size={16} /> Open in Gmail
@@ -220,8 +212,8 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
               </button>
             </div>
           ) : (
-            <button 
-              className="feedback-btn" 
+            <button
+              className="feedback-btn"
               onClick={() => setShowFeedbackMenu(true)}
               style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--primary-purple)', border: 'none', padding: '10px 16px', borderRadius: '4px', cursor: 'pointer', fontSize: '0.9em', color: '#fff', width: '100%', justifyContent: 'center', transition: 'all 0.2s', fontWeight: 600 }}
             >
