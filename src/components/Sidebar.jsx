@@ -204,13 +204,13 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
             <div className="feedback-menu">
               {/* iOS-safe mailto link using <a> tag instead of window.location.href */}
               
-                className="feedback-menu-item"
-                href={mailtoHref}
-                onClick={() => setShowFeedbackMenu(false)}
-                style={{ textDecoration: 'none' }}
-              >
-                <Mail size={16} /> Open Mail App
-              </a>
+              className="feedback-menu-item"
+  href={mailtoHref}
+  onClick={() => setShowFeedbackMenu(false)}
+  style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', background: 'white', border: '1px solid #e2e8f0', padding: '10px 14px', borderRadius: '6px', fontSize: '0.9rem', color: 'var(--text-dark)', fontWeight: 500 }}
+>
+  <Mail size={16} /> Open Mail App
+</a>
               <button className="feedback-menu-item" onClick={handleGmail}>
                 <Globe size={16} /> Open in Gmail
               </button>
