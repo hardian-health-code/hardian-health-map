@@ -63,12 +63,6 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
     return { email, subject, body };
   };
 
-  const handleNativeMail = () => {
-    const { email, subject, body } = getFeedbackData();
-    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setShowFeedbackMenu(false);
-  };
-
   const handleGmail = () => {
     const { email, subject, body } = getFeedbackData();
     const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -81,9 +75,12 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
-    setShowFeedbackMenu(false);
+      setShowFeedbackMenu(false);
     }, 2000);
   };
+
+  const { email, subject, body } = getFeedbackData();
+  const mailtoHref = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
   return (
     <div ref={sidebarRef} className={`sidebar ${selectedCountry ? 'open' : ''}`}>
@@ -205,9 +202,15 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
         <div style={{ marginTop: '30px', borderTop: '1px solid #eaeaea', paddingTop: '20px', position: 'relative' }}>
           {showFeedbackMenu ? (
             <div className="feedback-menu">
-              <button className="feedback-menu-item" onClick={handleNativeMail}>
+              {/* iOS-safe mailto link using <a> tag instead of window.location.href */}
+              
+                className="feedback-menu-item"
+                href={mailtoHref}
+                onClick={() => setShowFeedbackMenu(false)}
+                style={{ textDecoration: 'none' }}
+              >
                 <Mail size={16} /> Open Mail App
-              </button>
+              </a>
               <button className="feedback-menu-item" onClick={handleGmail}>
                 <Globe size={16} /> Open in Gmail
               </button>
