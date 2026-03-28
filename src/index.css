@@ -1,0 +1,552 @@
+@import "leaflet/dist/leaflet.css";
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap');
+
+:root {
+  --primary-purple: #A37AF5;
+  --primary-purple-hover: #b48eff;
+  
+  /* Hardian Health Brand Palette */
+  --hardian-purple-1: #A37AF5;
+  --hardian-mint-2: #49DAB0;
+  --hardian-blue-3: #5BCFFF;
+  --hardian-pink-4: #FF9FF2;
+  --hardian-blue-5: #3A6DF5;
+
+  --bg-primary: #FFFFFF;
+  --bg-panel: #FFFFFF;
+  --bg-panel-border: #E5E7EB;
+  
+  --text-dark: #1C1D1E;
+  --text-muted: #6B7280;
+  
+  --map-default: #F3F4F6;
+  --map-active: #E5E7EB;
+  --map-highlight: #A37AF5;
+  --map-border: #FFFFFF;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  background-color: var(--bg-primary);
+  color: var(--text-dark);
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  margin-top: 0;
+  color: var(--text-dark);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Map Controls (Reset + Fullscreen + Filters) */
+.map-controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.control-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.reset-btn {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--bg-panel-border);
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  color: var(--text-dark);
+  transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+  background-color: #f9fafb;
+  color: var(--primary-purple);
+}
+
+.map-filters {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background-color: white;
+  border: 1px solid var(--bg-panel-border);
+  color: var(--text-muted);
+  padding: 8px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+.filters-and-search-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+}
+
+/* Map Search */
+.map-search {
+  position: relative;
+  width: 100%;
+}
+
+.search-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border: 1px solid var(--bg-panel-border);
+  border-radius: 24px;
+  padding: 0 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+}
+
+.search-input-wrapper:focus-within {
+  border-color: var(--primary-purple);
+  box-shadow: 0 4px 16px rgba(107, 70, 193, 0.15);
+}
+
+.search-icon {
+  color: var(--text-muted);
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.map-search input {
+  border: none;
+  background: transparent;
+  padding: 12px 0;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  outline: none;
+}
+
+.map-search input::placeholder {
+  color: #94a3b8;
+}
+
+.clear-search {
+  color: #94a3b8;
+  cursor: pointer;
+  margin-left: 8px;
+  flex-shrink: 0;
+  transition: color 0.2s;
+}
+
+.clear-search:hover {
+  color: var(--text-dark);
+}
+
+.search-results {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background-color: white;
+  border: 1px solid var(--bg-panel-border);
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  max-height: 350px;
+  overflow-y: auto;
+  z-index: 1001;
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.search-result-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f1f5f9;
+  transition: background-color 0.2s;
+}
+
+.search-result-item:last-child {
+  border-bottom: none;
+}
+
+.search-result-item:hover {
+  background-color: #f8fafc;
+}
+
+.result-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.result-name {
+  font-weight: 700;
+  color: var(--text-dark);
+  font-size: 0.95rem;
+}
+
+.result-agency {
+  font-size: 0.75rem;
+  background-color: #f1f5f9;
+  color: var(--primary-purple);
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 700;
+}
+
+.result-fullname {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.filter-btn:hover {
+  border-color: var(--primary-purple);
+  color: var(--text-dark);
+}
+
+.filter-btn.active {
+  background-color: rgba(163, 122, 245, 0.1);
+  border-color: var(--primary-purple);
+  color: var(--primary-purple);
+  font-weight: 700;
+}
+
+/* Main Layout */
+.main-content {
+  display: flex;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-primary);
+  height: 100vh;
+}
+
+.map-wrapper {
+  flex: 1;
+  position: relative;
+  transition: margin-right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Leaflet Override */
+.leaflet-container {
+  background-color: var(--bg-primary) !important;
+  width: 100%;
+  height: 100%;
+}
+
+.leaflet-control-zoom {
+  border: 1px solid var(--bg-panel-border) !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05) !important;
+}
+
+.leaflet-control-zoom a {
+  background-color: #fff !important;
+  color: var(--text-dark) !important;
+  border-color: var(--bg-panel-border) !important;
+}
+.leaflet-control-zoom a:hover {
+  background-color: #f9fafb !important;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 420px;
+  background-color: var(--bg-panel);
+  border-left: 1px solid var(--bg-panel-border);
+  position: absolute;
+  right: -420px;
+  top: 0;
+  bottom: 0;
+  transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar-header {
+  padding: 2.5rem 2rem 1.5rem;
+  border-bottom: 1px solid var(--bg-panel-border);
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.close-btn:hover {
+  background-color: #f3f4f6;
+  color: var(--text-dark);
+}
+
+.country-name {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.agency-name {
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.agency-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--hardian-purple-1);
+  display: inline-block;
+}
+
+.sidebar-content {
+  padding: 2rem;
+  flex: 1;
+}
+
+.sidebar-section {
+  margin-bottom: 2.5rem;
+}
+
+.section-title {
+  color: var(--text-dark);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* 5 Hardian brand colours in order */
+.dot-1 { background-color: var(--hardian-purple-1); }     /* Purple */
+.dot-2 { background-color: var(--hardian-mint-2); }      /* Green */
+.dot-3 { background-color: var(--hardian-blue-3); }      /* Light Blue */
+.dot-4 { background-color: var(--hardian-pink-4); }      /* Pink */
+.dot-5 { background-color: var(--hardian-blue-5); }      /* Dark Blue */
+
+.framework-text {
+  line-height: 1.6;
+  color: var(--text-dark);
+  font-size: 1rem;
+  background-color: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--bg-panel-border);
+}
+
+.tags-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tag-item {
+  background-color: #ffffff;
+  border: 1px solid var(--bg-panel-border);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+
+.tag-label {
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tag-value {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.tag-value.true {
+  background-color: rgba(73, 218, 176, 0.15);
+  color: #047857;
+}
+.tag-value.false {
+  background-color: #f3f4f6;
+  color: var(--text-muted);
+}
+
+/* Tooltip */
+.leaflet-tooltip {
+  background-color: var(--bg-panel);
+  border: none;
+  color: var(--text-dark);
+  font-family: 'Open Sans', sans-serif;
+  padding: 10px 14px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  pointer-events: none !important;
+}
+
+.leaflet-tooltip::before {
+  border-top-color: var(--bg-panel);
+}
+
+.custom-tooltip-name {
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.custom-tooltip-info {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* External Link Styling (matches hardianhealth.com) */
+.external-link-styled {
+  color: var(--primary-purple) !important;
+  text-decoration: none !important;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+  cursor: pointer;
+}
+.external-link-styled:hover {
+  opacity: 0.75;
+}
+
+.country-path {
+  transition: fill 0.3s ease, fill-opacity 0.3s ease;
+  outline: none;
+}
+
+/* Feedback Menu Choice Dialog */
+.feedback-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: #f8fafc;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-top: 10px;
+  animation: slideUp 0.2s ease-out;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.feedback-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: white;
+  border: 1px solid #e2e8f0;
+  padding: 10px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-dark);
+  font-weight: 500;
+  transition: all 0.2s ease;
+  width: 100%;
+  text-align: left;
+}
+
+.feedback-menu-item:hover {
+  background: #f1f5f9;
+  border-color: var(--primary-purple);
+  color: var(--primary-purple);
+}
+
+.feedback-menu-item svg {
+  color: var(--primary-purple);
+}
+
+.feedback-menu-item.cancel {
+  background: transparent;
+  border: 1px dashed #cbd5e1;
+  color: #64748b;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.feedback-menu-item.cancel:hover {
+  background: #fff1f2;
+  border-color: #fda4af;
+  color: #e11d48;
+}
