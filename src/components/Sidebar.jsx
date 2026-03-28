@@ -54,6 +54,7 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
   // MRA display logic
   const mraText = displayData.mra || 'None';
   const hasMra = mraText !== 'None';
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
   // Feedback handlers
   const getFeedbackData = () => {
@@ -205,9 +206,7 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
         <div style={{ marginTop: '30px', borderTop: '1px solid #eaeaea', paddingTop: '20px', position: 'relative' }}>
           {showFeedbackMenu ? (
             <div className="feedback-menu">
-              <button className="feedback-menu-item" onClick={handleNativeMail}>
-                <Mail size={16} /> Open Mail App
-              </button>
+              {!isMobile && <button className="feedback-menu-item" onClick={handleNativeMail}><Mail size={16} /> Open Mail App</button>}
               <button className="feedback-menu-item" onClick={handleGmail}>
                 <Globe size={16} /> Open in Gmail
               </button>
