@@ -42,7 +42,7 @@ function App() {
 
   return (
     <div className="main-content">
-      <div className="map-wrapper" style={{ marginRight: selectedCountry ? '400px' : '0' }}>
+      <div className="map-wrapper" style={{ marginRight: window.innerWidth > 768 && selectedCountry ? '400px' : '0' }}>
         <MapComponent 
           data={regulatoryData} 
           filters={filters} 
