@@ -1,3 +1,4 @@
+cat > src/components/Sidebar.jsx << 'ENDOFFILE'
 import React, { useState, useEffect, useRef } from 'react';
 import { X, ExternalLink, MessageSquare, Clipboard, Mail, Globe } from 'lucide-react';
 
@@ -42,15 +43,14 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
 
   const mdsapStatus = displayData.mdsapStatus || (displayData.isMDSAP ? 'Participant' : 'Non-Participant');
   const isMdsapActive = mdsapStatus !== 'Non-Participant';
-
   const imdrfStatus = displayData.imdrfStatus || (displayData.isIMDRF ? 'Member' : 'Non-Member');
   const isImdrfActive = imdrfStatus !== 'Non-Member';
   const imdrfDisplay = (isImdrfActive && displayData.imdrfSince)
     ? `${imdrfStatus} (since ${displayData.imdrfSince})`
     : imdrfStatus;
-
   const mraText = displayData.mra || 'None';
   const hasMra = mraText !== 'None';
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
   const feedbackEmail = 'map@hardianhealth.com';
   const feedbackSubject = `Map Feedback: ${displayData.name || 'Unknown Country'}`;
@@ -116,7 +116,7 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
         <div className="sidebar-section">
           <h4 className="section-title">
             <span className="section-dot dot-2"></span>
-            Compliance & Recognition
+            Compliance and Recognition
           </h4>
           <div className="tags-list">
             <div className="tag-item">
@@ -189,44 +189,47 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
           </div>
         </div>
 
-<div style={{ marginTop: '30px', borderTop: '1px solid #eaeaea', paddingTop: '20px', position: 'relative' }}>
-  {showFeedbackMenu ? (
-    <div className="feedback-menu">
-      {!/Mobi|Android/i.test(navigator.userAgent) && (
-        
-          href={mailtoHref}
-          className="feedback-menu-item"
-          style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', background: 'white', border: '1px solid #e2e8f0', padding: '10px 14px', borderRadius: '6px', fontSize: '0.9rem', color: 'var(--text-dark)', fontWeight: 500 }}
-          onClick={() => setShowFeedbackMenu(false)}
-        >
-          <Mail size={16} />
-          Open Mail App
-        </a>
-      )}
-      {!/Mobi|Android/i.test(navigator.userAgent) && (
-        <button className="feedback-menu-item" onClick={handleGmail}>
-          <Globe size={16} /> Open in Gmail
-        </button>
-      )}
-      <button className="feedback-menu-item" onClick={handleCopyEmail}>
-        <Clipboard size={16} /> {copied ? 'Copied Email!' : 'Copy Email Address'}
-      </button>
-      <button className="feedback-menu-item cancel" onClick={() => setShowFeedbackMenu(false)}>
-        Cancel
-      </button>
+        <div style={{ marginTop: '30px', borderTop: '1px solid #eaeaea', paddingTop: '20px', position: 'relative' }}>
+          {showFeedbackMenu ? (
+            <div className="feedback-menu">
+              {!isMobile && (
+                
+                  href={mailtoHref}
+                  className="feedback-menu-item"
+                  style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', background: 'white', border: '1px solid #e2e8f0', padding: '10px 14px', borderRadius: '6px', fontSize: '0.9rem', color: 'var(--text-dark)', fontWeight: 500 }}
+                  onClick={() => setShowFeedbackMenu(false)}
+                >
+                  <Mail size={16} />
+                  Open Mail App
+                </a>
+              )}
+              {!isMobile && (
+                <button className="feedback-menu-item" onClick={handleGmail}>
+                  <Globe size={16} /> Open in Gmail
+                </button>
+              )}
+              <button className="feedback-menu-item" onClick={handleCopyEmail}>
+                <Clipboard size={16} /> {copied ? 'Copied Email!' : 'Copy Email Address'}
+              </button>
+              <button className="feedback-menu-item cancel" onClick={() => setShowFeedbackMenu(false)}>
+                Cancel
+              </button>
+            </div>
+          ) : (
+            <button
+              className="feedback-btn"
+              onClick={() => setShowFeedbackMenu(true)}
+              style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--primary-purple)', border: 'none', padding: '10px 16px', borderRadius: '4px', cursor: 'pointer', fontSize: '0.9em', color: '#fff', width: '100%', justifyContent: 'center', transition: 'all 0.2s', fontWeight: 600 }}
+            >
+              <MessageSquare size={16} />
+              Feedback
+            </button>
+          )}
+        </div>
+      </div>
     </div>
-  ) : (
-    <button
-      className="feedback-btn"
-      onClick={() => setShowFeedbackMenu(true)}
-      style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--primary-purple)', border: 'none', padding: '10px 16px', borderRadius: '4px', cursor: 'pointer', fontSize: '0.9em', color: '#fff', width: '100%', justifyContent: 'center', transition: 'all 0.2s', fontWeight: 600 }}
-    >
-      <MessageSquare size={16} />
-      Feedback
-    </button>
-  )}
-</div>
   );
 };
 
 export default Sidebar;
+ENDOFFILE
