@@ -199,42 +199,37 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
           </div>
         </div>
 
-        <div style={{ marginTop: '30px', borderTop: '1px solid #eaeaea', paddingTop: '20px', position: 'relative' }}>
-          {showFeedbackMenu ? (
-            <div className="feedback-menu">
-              {/* iOS-safe mailto link using <a> tag instead of window.location.href */}
-              
-              className="feedback-menu-item"
-  href={mailtoHref}
-  onClick={() => setShowFeedbackMenu(false)}
-  style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', background: 'white', border: '1px solid #e2e8f0', padding: '10px 14px', borderRadius: '6px', fontSize: '0.9rem', color: 'var(--text-dark)', fontWeight: 500 }}
->
-  <Mail size={16} /> Open Mail App
-</a>
-              <button className="feedback-menu-item" onClick={handleGmail}>
-                <Globe size={16} /> Open in Gmail
-              </button>
-              <button className="feedback-menu-item" onClick={handleCopyEmail}>
-                <Clipboard size={16} /> {copied ? 'Copied Email!' : 'Copy Email Address'}
-              </button>
-              <button className="feedback-menu-item cancel" onClick={() => setShowFeedbackMenu(false)}>
-                Cancel
-              </button>
-            </div>
-          ) : (
-            <button 
-              className="feedback-btn" 
-              onClick={() => setShowFeedbackMenu(true)}
-              style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--primary-purple)', border: 'none', padding: '10px 16px', borderRadius: '4px', cursor: 'pointer', fontSize: '0.9em', color: '#fff', width: '100%', justifyContent: 'center', transition: 'all 0.2s', fontWeight: 600 }}
-            >
-              <MessageSquare size={16} />
-              Feedback
-            </button>
-          )}
-        </div>
-      </div>
+<div style={{ marginTop: '30px', borderTop: '1px solid #eaeaea', paddingTop: '20px', position: 'relative' }}>
+  {showFeedbackMenu ? (
+    <div className="feedback-menu">
+      
+        className="feedback-menu-item"
+        href={mailtoHref}
+        onClick={() => setShowFeedbackMenu(false)}
+        style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '10px', background: 'white', border: '1px solid #e2e8f0', padding: '10px 14px', borderRadius: '6px', fontSize: '0.9rem', color: 'var(--text-dark)', fontWeight: 500 }}
+      >
+        <Mail size={16} /> Open Mail App
+      </a>
+      <button className="feedback-menu-item" onClick={handleGmail}>
+        <Globe size={16} /> Open in Gmail
+      </button>
+      <button className="feedback-menu-item" onClick={handleCopyEmail}>
+        <Clipboard size={16} /> {copied ? 'Copied Email!' : 'Copy Email Address'}
+      </button>
+      <button className="feedback-menu-item cancel" onClick={() => setShowFeedbackMenu(false)}>
+        Cancel
+      </button>
     </div>
-  );
-};
+  ) : (
+    <button 
+      className="feedback-btn" 
+      onClick={() => setShowFeedbackMenu(true)}
+      style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--primary-purple)', border: 'none', padding: '10px 16px', borderRadius: '4px', cursor: 'pointer', fontSize: '0.9em', color: '#fff', width: '100%', justifyContent: 'center', transition: 'all 0.2s', fontWeight: 600 }}
+    >
+      <MessageSquare size={16} />
+      Feedback
+    </button>
+  )}
+</div>
 
 export default Sidebar;
