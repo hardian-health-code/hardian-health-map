@@ -1,4 +1,3 @@
-cat > src/components/Sidebar.jsx << 'ENDOFFILE'
 import React, { useState, useEffect, useRef } from 'react';
 import { X, ExternalLink, MessageSquare, Clipboard, Mail, Globe } from 'lucide-react';
 
@@ -9,20 +8,12 @@ const ExternalLinkIcon = () => (
 const Sidebar = ({ selectedCountry, data, onClose }) => {
   const [showFeedbackMenu, setShowFeedbackMenu] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const sidebarRef = useRef(null);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const isoA3 = selectedCountry ? (selectedCountry.ISO_A3 || selectedCountry['ISO3166-1-Alpha-3'] || selectedCountry.ADM0_A3) : null;
   const isoA2 = selectedCountry ? (selectedCountry.ISO_A2 || selectedCountry['ISO3166-1-Alpha-2']) : null;
 
+  // Scroll to top when country changes
   useEffect(() => {
     if (sidebarRef.current) {
       sidebarRef.current.scrollTop = 0;
@@ -32,7 +23,7 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
   if (!selectedCountry) return null;
 
   const countryData = data[isoA3];
-
+  
   const displayData = countryData || {
     name: selectedCountry.ADMIN,
     agency: 'Data Not Available',
@@ -50,33 +41,47 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
     mra: 'None'
   };
 
+  // Formatting helpers for memberships
   const mdsapStatus = displayData.mdsapStatus || (displayData.isMDSAP ? 'Participant' : 'Non-Participant');
   const isMdsapActive = mdsapStatus !== 'Non-Participant';
+
   const imdrfStatus = displayData.imdrfStatus || (displayData.isIMDRF ? 'Member' : 'Non-Member');
   const isImdrfActive = imdrfStatus !== 'Non-Member';
-  const imdrfDisplay = (isImdrfActive && displayData.imdrfSince)
+  const imdrfDisplay = (isImdrfActive && displayData.imdrfSince) 
     ? `${imdrfStatus} (since ${displayData.imdrfSince})`
     : imdrfStatus;
+
+  // MRA display logic
   const mraText = displayData.mra || 'None';
   const hasMra = mraText !== 'None';
 
-  const feedbackEmail = 'map@hardianhealth.com';
-  const feedbackSubject = `Map Feedback: ${displayData.name || 'Unknown Country'}`;
-  const feedbackBody = `Country: ${displayData.name || 'Unknown'}\n\nPlease describe the issue or suggestion:\n\n`;
-  const mailtoHref = `mailto:${feedbackEmail}?subject=${encodeURIComponent(feedbackSubject)}&body=${encodeURIComponent(feedbackBody)}`;
+  // Feedback handlers
+  const getFeedbackData = () => {
+    const subject = `Map Feedback: ${displayData.name || 'Unknown Country'}`;
+    const body = `Country: ${displayData.name || 'Unknown'}\n\nPlease describe the issue or suggestion:\n\n`;
+    const email = 'map@hardianhealth.com';
+    return { email, subject, body };
+  };
+
+  const handleNativeMail = () => {
+    const { email, subject, body } = getFeedbackData();
+    window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setShowFeedbackMenu(false);
+  };
 
   const handleGmail = () => {
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${feedbackEmail}&su=${encodeURIComponent(feedbackSubject)}&body=${encodeURIComponent(feedbackBody)}`;
+    const { email, subject, body } = getFeedbackData();
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     window.open(gmailUrl, '_blank');
     setShowFeedbackMenu(false);
   };
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText(feedbackEmail);
+    navigator.clipboard.writeText('map@hardianhealth.com');
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
-      setShowFeedbackMenu(false);
+    setShowFeedbackMenu(false);
     }, 2000);
   };
 
@@ -87,10 +92,10 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
           <X size={24} />
         </button>
         {isoA2 && isoA2 !== '-99' && (
-          <img
-            src={`https://flagcdn.com/w80/${isoA2.toLowerCase()}.png`}
-            alt="Flag"
-            style={{ width: '40px', borderRadius: '4px', marginBottom: '10px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}
+          <img 
+            src={`https://flagcdn.com/w80/${isoA2.toLowerCase()}.png`} 
+            alt={`Flag`} 
+            style={{ width: '40px', borderRadius: '4px', marginBottom: '10px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }} 
           />
         )}
         <h2 className="country-name">{displayData.name || selectedCountry.ADMIN}</h2>
@@ -111,7 +116,7 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
           )}
         </div>
       </div>
-
+      
       <div className="sidebar-content">
         <div className="sidebar-section">
           <h4 className="section-title">
@@ -124,7 +129,7 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
         <div className="sidebar-section">
           <h4 className="section-title">
             <span className="section-dot dot-2"></span>
-            Compliance and Recognition
+            Compliance & Recognition
           </h4>
           <div className="tags-list">
             <div className="tag-item">
@@ -197,40 +202,27 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
           </div>
         </div>
 
-        <div style={{ marginTop: '30px', borderTop: '1px solid #eaeaea', paddingTop: '20px' }}>
+        <div style={{ marginTop: '30px', borderTop: '1px solid #eaeaea', paddingTop: '20px', position: 'relative' }}>
           {showFeedbackMenu ? (
             <div className="feedback-menu">
-              {!isMobile ? (
-                <>
-                  <a
-                    href={mailtoHref}
-                    className="feedback-menu-item"
-                    style={{ textDecoration: 'none' }}
-                    onClick={() => setShowFeedbackMenu(false)}
-                  >
-                    <Mail size={16} />
-                    Open Mail App
-                  </a>
-                  <button className="feedback-menu-item" onClick={handleGmail}>
-                    <Globe size={16} /> Open in Gmail
-                  </button>
-                  <button className="feedback-menu-item" onClick={handleCopyEmail}>
-                    <Clipboard size={16} /> {copied ? 'Copied Email!' : 'Copy Email Address'}
-                  </button>
-                </>
-              ) : (
-                <button className="feedback-menu-item" onClick={handleCopyEmail}>
-                  <Clipboard size={16} /> {copied ? 'Copied Email!' : 'Copy Email Address'}
-                </button>
-              )}
+              <button className="feedback-menu-item" onClick={handleNativeMail}>
+                <Mail size={16} /> Open Mail App
+              </button>
+              <button className="feedback-menu-item" onClick={handleGmail}>
+                <Globe size={16} /> Open in Gmail
+              </button>
+              <button className="feedback-menu-item" onClick={handleCopyEmail}>
+                <Clipboard size={16} /> {copied ? 'Copied Email!' : 'Copy Email Address'}
+              </button>
               <button className="feedback-menu-item cancel" onClick={() => setShowFeedbackMenu(false)}>
                 Cancel
               </button>
             </div>
           ) : (
-            <button
-              className="feedback-btn"
+            <button 
+              className="feedback-btn" 
               onClick={() => setShowFeedbackMenu(true)}
+              style={{ display: 'flex', alignItems: 'center', gap: '8px', background: 'var(--primary-purple)', border: 'none', padding: '10px 16px', borderRadius: '4px', cursor: 'pointer', fontSize: '0.9em', color: '#fff', width: '100%', justifyContent: 'center', transition: 'all 0.2s', fontWeight: 600 }}
             >
               <MessageSquare size={16} />
               Feedback
@@ -243,4 +235,3 @@ const Sidebar = ({ selectedCountry, data, onClose }) => {
 };
 
 export default Sidebar;
-ENDOFFILE

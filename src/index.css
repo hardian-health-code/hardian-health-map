@@ -501,9 +501,8 @@ h1, h2, h3, h4, h5, h6 {
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #e2e8f0;
-  margin-top: 15px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  margin-top: 10px;
+  animation: slideUp 0.2s ease-out;
 }
 
 @keyframes slideUp {
@@ -532,34 +531,6 @@ h1, h2, h3, h4, h5, h6 {
   background: #f1f5f9;
   border-color: var(--primary-purple);
   color: var(--primary-purple);
-}
-
-.feedback-btn {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: var(--primary-purple);
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  color: #fff;
-  width: 100%;
-  justify-content: center;
-  transition: all 0.2s ease;
-  font-weight: 700;
-  box-shadow: 0 4px 12px rgba(163, 122, 245, 0.2);
-}
-
-.feedback-btn:hover {
-  background: var(--primary-purple-hover);
-  transform: translateY(-1px);
-  box-shadow: 0 6px 15px rgba(163, 122, 245, 0.3);
-}
-
-.feedback-btn:active {
-  transform: translateY(0);
 }
 
 .feedback-menu-item svg {
@@ -671,4 +642,4 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
 }
-
+}
