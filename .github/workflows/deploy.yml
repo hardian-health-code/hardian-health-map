@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4.2.2
 
@@ -20,6 +22,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Configure git identity
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "GitHub Actions"
 
       - name: Deploy
         run: npm run deploy
