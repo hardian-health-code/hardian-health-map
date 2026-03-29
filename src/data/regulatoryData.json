@@ -677,7 +677,7 @@
     "agencyFullName": "Ag\u00eancia Nacional de Vigil\u00e2ncia Sanit\u00e1ria",
     "agencyUrl": "https://www.gov.br/anvisa/pt-br",
     "framework": "ANVISA oversees registration. MDSAP audits strongly substitute for ANVISA specific inspections.",
-    "acceptsCE": false,
+    "acceptsCE": true,
     "acceptsFDA": false,
     "acceptsUKCA": false,
     "isMDSAP": true,
