@@ -23,12 +23,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Configure git identity
+      - name: Configure git
         run: |
           git config --global user.email "github-actions@github.com"
           git config --global user.name "GitHub Actions"
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/hardian-health-code/hardian-health-map.git
 
       - name: Deploy
         run: npm run deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
