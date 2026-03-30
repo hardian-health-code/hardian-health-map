@@ -100,9 +100,9 @@
     "imdrfSince": "2017"
   },
   "CYP": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Cyprus",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / CMDCA",
+    "agencyFullName": "Cyprus Medical Devices Competent Authority",
+    "agencyUrl": "https://www.mphs.moh.gov.cy/mdca",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes. The EU is a founding member of the IMDRF.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -381,7 +381,7 @@
   "MAR": {
     "name": "Morocco",
     "agency": "DMP",
-    "agencyFullName": "Direction du M\u00e9dicament et de la Pharmacie",
+    "agencyFullName": "Direction du Médicament et de la Pharmacie",
     "agencyUrl": "http://www.sante.gov.ma/",
     "framework": "The DMP under the Ministry of Health regulates medical devices in Morocco. Law No. 84-12 governs the registration and control of devices. Registration certificates are valid for 5 years, and foreign manufacturers must appoint a local company for distribution.",
     "acceptsCE": true,
@@ -445,7 +445,7 @@
   "COG": {
     "name": "Congo",
     "agency": "DPML",
-    "agencyFullName": "Direction de la Pharmacie et du M\u00e9dicament",
+    "agencyFullName": "Direction de la Pharmacie et du Médicament",
     "agencyUrl": "",
     "framework": "DPML regulates medical devices through registration and import licensing. A new Conformity Assessment Program (PCEC) was introduced on 1 May 2022, which often uses existing compliance documents like CE marking. FDA clearance (510(k)) is considered high-level documentation that can help speed up the registration process, but it does not bypass the requirement for local registration.",
     "acceptsCE": true,
@@ -462,7 +462,7 @@
   "COD": {
     "name": "Democratic Republic of the Congo",
     "agency": "DPM",
-    "agencyFullName": "Direction de la Pharmacie et du M\u00e9dicament",
+    "agencyFullName": "Direction de la Pharmacie et du Médicament",
     "agencyUrl": "",
     "framework": "DPM regulates medical devices in the DRC through product registration.  A new Conformity Assessment Program (PCEC) was introduced on 1 May 2022, which often uses existing compliance documents like CE marking. FDA clearance (510(k)) is considered high-level documentation that can help speed up the registration process, but it does not bypass the requirement for local registration.",
     "acceptsCE": true,
@@ -656,9 +656,9 @@
     "mra": "None"
   },
   "LTU": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Lithuania",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / VASPVT",
+    "agencyFullName": "State Health Care Accreditation Agency under the Ministry of Health of the Republic of Lithuania",
+    "agencyUrl": "https://www.vaspvt.gov.lt/node/30",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes. The EU is a founding member of the IMDRF.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -674,7 +674,7 @@
   },
   "BRA": {
     "agency": "ANVISA",
-    "agencyFullName": "Ag\u00eancia Nacional de Vigil\u00e2ncia Sanit\u00e1ria",
+    "agencyFullName": "Agência Nacional de Vigilância Sanitária",
     "agencyUrl": "https://www.gov.br/anvisa/pt-br",
     "framework": "ANVISA oversees registration. MDSAP audits strongly substitute for ANVISA specific inspections. Under IN 290/2024, FDA clearances or premarket approvals (PMA) for high-risk devices can be leveraged. Under recent regulations (RDC 751/2022), ANVISA allows for simplified, faster review for devices with approval from recognized foreign regulatory authorities, including CE marking",
     "acceptsCE": true,
@@ -736,9 +736,9 @@
     "imdrfStatus": "Currently sanctioned"
   },
   "CZE": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Czechia",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / SÚKL",
+    "agencyFullName": "State Institute for Drug Control",
+    "agencyUrl": "https://sukl.gov.cz/en",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes. The EU is a founding member of the IMDRF.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -753,9 +753,9 @@
     "imdrfSince": "2011"
   },
   "DEU": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Germany",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / BfArM",
+    "agencyFullName": "Federal Institute for Drugs and Medical Devices",
+    "agencyUrl": "https://www.bfarm.de/EN",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes. The EU is a founding member of the IMDRF.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -770,9 +770,9 @@
     "imdrfSince": "2011"
   },
   "EST": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Estonia",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / SAM",
+    "agencyFullName": "State Agency of Medicines",
+    "agencyUrl": "https://www.ravimiamet.ee/en",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes. The EU is a founding member of the IMDRF.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -787,9 +787,9 @@
     "imdrfSince": "2011"
   },
   "LVA": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Latvia",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / ZVA",
+    "agencyFullName": "State Agency of Medicines of Latvia",
+    "agencyUrl": "https://www.zva.gov.lv/en",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes. The EU is a founding member of the IMDRF.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -804,9 +804,9 @@
     "imdrfSince": "2011"
   },
   "SWE": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Sweden",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / MPA",
+    "agencyFullName": "Swedish Medical Products Agency",
+    "agencyUrl": "https://www.lakemedelsverket.se/en",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -821,9 +821,9 @@
     "imdrfSince": "2011"
   },
   "FIN": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Finland",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / Fimea",
+    "agencyFullName": "Finnish Medicines Agency",
+    "agencyUrl": "https://www.fimea.fi/web/en",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -872,9 +872,9 @@
     "imdrfSince": ""
   },
   "LUX": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Luxembourg",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / Ministry of Health",
+    "agencyFullName": "Luxembourg Ministry of Health – Medical Devices Division",
+    "agencyUrl": "https://sante.public.lu/fr.html",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -906,9 +906,9 @@
     "mra": "None"
   },
   "BEL": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Belgium",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / FAMHP",
+    "agencyFullName": "Federal Agency for Medicines and Health Products",
+    "agencyUrl": "https://www.famhp.be/en",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -986,10 +986,10 @@
   },
   "TUR": {
     "name": "Turkey",
-    "agency": "T\u0130TCK",
+    "agency": "TİTCK",
     "agencyFullName": "Turkish Medicines and Medical Devices Agency",
     "agencyUrl": "https://www.titck.gov.tr/",
-    "framework": "Turkey's medical device regulations are fully harmonised with the EU MDR (2017/745) and IVDR (2017/746) under the EU-Turkey Customs Union Agreement. CE marking is mandatory for market access, and certificates issued by EU Notified Bodies are accepted. All devices must also be registered in the \u00dcr\u00fcn Takip Sistemi (\u00dcTS), Turkey's national product tracking system. Turkish-language Instructions for Use are required. EU manufacturers may place CE-marked devices on the Turkish market under the Customs Union without a separate Turkish authorised representative.",
+    "framework": "Turkey's medical device regulations are fully harmonised with the EU MDR (2017/745) and IVDR (2017/746) under the EU-Turkey Customs Union Agreement. CE marking is mandatory for market access, and certificates issued by EU Notified Bodies are accepted. All devices must also be registered in the Ürün Takip Sistemi (ÜTS), Turkey's national product tracking system. Turkish-language Instructions for Use are required. EU manufacturers may place CE-marked devices on the Turkish market under the Customs Union without a separate Turkish authorised representative.",
     "acceptsCE": true,
     "acceptsFDA": false,
     "acceptsUKCA": false,
@@ -1002,9 +1002,9 @@
     "mra": "None"
   },
   "ESP": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Spain",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / AEMPS",
+    "agencyFullName": "Spanish Agency of Medicines and Medical Devices",
+    "agencyUrl": "https://www.aemps.gob.es/en",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -1068,9 +1068,9 @@
     "imdrfSince": ""
   },
   "DNK": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Denmark",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / DKMA",
+    "agencyFullName": "Danish Medicines Agency",
+    "agencyUrl": "https://laegemiddelstyrelsen.dk/en",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -1104,7 +1104,7 @@
   "TUN": {
     "name": "Tunisia",
     "agency": "DPM",
-    "agencyFullName": "Direction de la Pharmacie et du M\u00e9dicament",
+    "agencyFullName": "Direction de la Pharmacie et du Médicament",
     "agencyUrl": "http://www.dpm.tn/",
     "framework": "DPM in Tunisia regulates medical devices through technical evaluation and registration. Devices must comply with safety standards, and CE marking is a standard requirement for imported products.",
     "acceptsCE": true,
@@ -1119,9 +1119,9 @@
     "imdrfSince": ""
   },
   "ROU": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Romania",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / ANMDM",
+    "agencyFullName": "National Agency for Medicines and Medical Devices of Romania",
+    "agencyUrl": "https://www.anm.ro",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -1136,9 +1136,9 @@
     "imdrfSince": "2011"
   },
   "HUN": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Hungary",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / NNGYK",
+    "agencyFullName": "National Centre for Public Health and Pharmacy",
+    "agencyUrl": "https://www.nngyk.gov.hu",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -1153,9 +1153,9 @@
     "imdrfSince": "2011"
   },
   "SVK": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Slovakia",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / ŠÚKL",
+    "agencyFullName": "State Institute for Drug Control Slovakia",
+    "agencyUrl": "https://www.sukl.sk/hlavna-stranka/english-version",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -1170,9 +1170,9 @@
     "imdrfSince": "2011"
   },
   "POL": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Poland",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / URPL",
+    "agencyFullName": "Office for Registration of Medicinal Products, Medical Devices and Biocidal Products",
+    "agencyUrl": "https://www.urpl.gov.pl/en",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -1187,9 +1187,9 @@
     "imdrfSince": "2011"
   },
   "IRL": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Ireland",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / HPRA",
+    "agencyFullName": "Health Products Regulatory Authority",
+    "agencyUrl": "https://www.hpra.ie",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -1221,9 +1221,9 @@
     "imdrfSince": "2016"
   },
   "GRC": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Greece",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / EOF",
+    "agencyFullName": "National Organization for Medicines",
+    "agencyUrl": "https://www.eof.gr/web/guest/home",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -1274,7 +1274,7 @@
   "GIN": {
     "name": "Guinea",
     "agency": "DNPM",
-    "agencyFullName": "Direction Nationale de la Pharmacie et du M\u00e9dicament",
+    "agencyFullName": "Direction Nationale de la Pharmacie et du Médicament",
     "agencyUrl": "",
     "framework": "DNPM regulates pharmaceutical and medical device sectors in Guinea.",
     "acceptsCE": true,
@@ -1308,7 +1308,7 @@
   "CAF": {
     "name": "Central African Republic",
     "agency": "DPM",
-    "agencyFullName": "Direction de la Pharmacie et du M\u00e9dicament",
+    "agencyFullName": "Direction de la Pharmacie et du Médicament",
     "agencyUrl": "",
     "framework": "DPM oversees the import and distribution of medical devices.",
     "acceptsCE": true,
@@ -1342,7 +1342,7 @@
   "DJI": {
     "name": "Djibouti",
     "agency": "DPM",
-    "agencyFullName": "Direction de la Pharmacie et du M\u00e9dicament",
+    "agencyFullName": "Direction de la Pharmacie et du Médicament",
     "agencyUrl": "",
     "framework": "DPM oversees the quality and registration of medical devices.",
     "acceptsCE": true,
@@ -1374,9 +1374,9 @@
     "imdrfSince": ""
   },
   "AUT": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Austria",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / BASG",
+    "agencyFullName": "Austrian Federal Office for Safety in Health Care",
+    "agencyUrl": "https://www.basg.gv.at/en",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -1408,9 +1408,9 @@
     "imdrfSince": ""
   },
   "ITA": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Italy",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / MoH",
+    "agencyFullName": "Ministry of Health – Directorate General of Medical Devices and Pharmaceutical Services",
+    "agencyUrl": "https://www.salute.gov.it/portale/dispositiviMedici/homePaginaDispositiviMedici.jsp",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes. The EU is a founding member of the IMDRF.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -1457,9 +1457,9 @@
     "mra": "None"
   },
   "NLD": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Netherlands",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / IGJ",
+    "agencyFullName": "Dutch Health and Youth Care Inspectorate",
+    "agencyUrl": "https://www.igj.nl/en",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -1475,9 +1475,9 @@
   },
   "LIE": {
     "name": "Liechtenstein",
-    "agency": "No Data",
-    "agencyFullName": "Data Unavailable or Not Established",
-    "agencyUrl": "",
+    "agency": "EMA / OeGD",
+    "agencyFullName": "Office of Public Health Liechtenstein",
+    "agencyUrl": "https://www.llv.li/en/state/offices-and-courts/offices/office-of-public-health",
     "framework": "Specific regulatory framework data is unavailable, decentralized, or heavily relies on importing from recognized reference nations (e.g., EU, USA).",
     "acceptsCE": false,
     "acceptsFDA": false,
@@ -1491,11 +1491,11 @@
     "imdrfSince": "2011"
   },
   "CIV": {
-    "name": "C\u00f4te d'Ivoire",
+    "name": "Côte d'Ivoire",
     "agency": "AIRP",
-    "agencyFullName": "Autorit\u00e9 Ivoirienne de R\u00e9gulation Pharmaceutique",
+    "agencyFullName": "Autorité Ivoirienne de Régulation Pharmaceutique",
     "agencyUrl": "http://www.airp.ci/",
-    "framework": "The AIRP regulates medical devices in C\u00f4te d'Ivoire. It enforces product registration and licensing of health product distributors, contributing to UEMOA regional harmonization guidelines.",
+    "framework": "The AIRP regulates medical devices in Côte d'Ivoire. It enforces product registration and licensing of health product distributors, contributing to UEMOA regional harmonization guidelines.",
     "acceptsCE": true,
     "acceptsFDA": false,
     "acceptsUKCA": false,
@@ -1525,7 +1525,7 @@
   "MLI": {
     "name": "Mali",
     "agency": "DPM",
-    "agencyFullName": "Direction de la Pharmacie et du M\u00e9dicament",
+    "agencyFullName": "Direction de la Pharmacie et du Médicament",
     "agencyUrl": "http://www.sante.gov.ml",
     "framework": "DPM regulates medical devices through registration and import monitoring.",
     "acceptsCE": true,
@@ -1542,7 +1542,7 @@
   "SEN": {
     "name": "Senegal",
     "agency": "ARP",
-    "agencyFullName": "Agence de R\u00e9gulation des Pharmacie",
+    "agencyFullName": "Agence de Régulation des Pharmacie",
     "agencyUrl": "https://www.arp.gouv.sn/",
     "framework": "Senegal's ARP has achieved WHO Maturity Level 3. It regulates medical devices through registration and rigorous post-market surveillance. Senegal is a key player in West African pharmaceutical harmonization.",
     "acceptsCE": true,
@@ -1576,7 +1576,7 @@
   "BEN": {
     "name": "Benin",
     "agency": "ABRP",
-    "agencyFullName": "Agence B\u00e9ninoise de R\u00e9gulation Pharmaceutique",
+    "agencyFullName": "Agence Béninoise de Régulation Pharmaceutique",
     "agencyUrl": "https://sante.gouv.bj",
     "framework": "ABRP regulates medical devices through registration and inspection.",
     "acceptsCE": true,
@@ -1593,7 +1593,7 @@
   "AGO": {
     "name": "Angola",
     "agency": "ARME",
-    "agencyFullName": "Ag\u00eancia Reguladora de Medicamentos e Tecnologias de Sa\u00fade",
+    "agencyFullName": "Agência Reguladora de Medicamentos e Tecnologias de Saúde",
     "agencyUrl": "https://arme.gov.ao/",
     "framework": "Angola's ARME oversees the regulation of health products. While pharmaceutical regulation is established, medical device specific frameworks are currently being strengthened to improve quality oversight and import controls.",
     "acceptsCE": true,
@@ -1608,9 +1608,9 @@
     "imdrfSince": ""
   },
   "HRV": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Croatia",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / HALMED",
+    "agencyFullName": "Agency for Medicinal Products and Medical Devices of Croatia",
+    "agencyUrl": "https://www.halmed.hr/en",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -1625,9 +1625,9 @@
     "imdrfSince": "2011"
   },
   "SVN": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Slovenia",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / JAZMP",
+    "agencyFullName": "Agency for Medicinal Products and Medical Devices of the Republic of Slovenia",
+    "agencyUrl": "https://www.jazmp.si/en",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -1727,9 +1727,9 @@
     "imdrfSince": "2024"
   },
   "BGR": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Bulgaria",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / BDA",
+    "agencyFullName": "Bulgarian Drug Agency",
+    "agencyUrl": "https://www.bda.bg/en",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -1810,7 +1810,7 @@
   "TCD": {
     "name": "Chad",
     "agency": "DPML",
-    "agencyFullName": "Direction de la Pharmacie et du M\u00e9dicament",
+    "agencyFullName": "Direction de la Pharmacie et du Médicament",
     "agencyUrl": "",
     "framework": "DPML regulates health product imports and registration in Chad.",
     "acceptsCE": true,
@@ -1976,7 +1976,7 @@
   "BDI": {
     "name": "Burundi",
     "agency": "ABREMA",
-    "agencyFullName": "Autorit\u00e9 Burundaise de R\u00e9gulation des M\u00e9dicaments",
+    "agencyFullName": "Autorité Burundaise de Régulation des Médicaments",
     "agencyUrl": "http://www.mspls.gov.bi",
     "framework": "ABREMA regulates the pharmaceutical sector and medical devices in Burundi.",
     "acceptsCE": true,
@@ -2200,9 +2200,9 @@
     "mra": "None"
   },
   "PRT": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Portugal",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / INFARMED",
+    "agencyFullName": "National Authority of Medicines and Health Products",
+    "agencyUrl": "https://www.infarmed.pt/web/infarmed-en",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -2300,7 +2300,7 @@
   "CMR": {
     "name": "Cameroon",
     "agency": "DPML",
-    "agencyFullName": "Direction de la Pharmacie, du M\u00e9dicament et des Laboratoires",
+    "agencyFullName": "Direction de la Pharmacie, du Médicament et des Laboratoires",
     "agencyUrl": "http://www.minsante.gov.cm/",
     "framework": "DPML regulates the pharmaceutical sector including medical devices. Registration and control of imports are required to ensure conformity with national health standards in the CEMAC region.",
     "acceptsCE": true,
@@ -2317,7 +2317,7 @@
   "GAB": {
     "name": "Gabon",
     "agency": "DPM",
-    "agencyFullName": "Direction du M\u00e9dicament et de la Pharmacie",
+    "agencyFullName": "Direction du Médicament et de la Pharmacie",
     "agencyUrl": "",
     "framework": "DPM regulates medical device registration and imports in Gabon.",
     "acceptsCE": true,
@@ -2334,7 +2334,7 @@
   "NER": {
     "name": "Niger",
     "agency": "DPH/MT",
-    "agencyFullName": "Direction de la Pharmacie et de la M\u00e9decine Traditionnelle",
+    "agencyFullName": "Direction de la Pharmacie et de la Médecine Traditionnelle",
     "agencyUrl": "",
     "framework": "DPH/MT regulates health product registration and quality in Niger.",
     "acceptsCE": true,
@@ -2351,7 +2351,7 @@
   "BFA": {
     "name": "Burkina Faso",
     "agency": "DGPML",
-    "agencyFullName": "Direction G\u00e9n\u00e9rale de la Pharmacie, du M\u00e9dicament et des Laboratoires",
+    "agencyFullName": "Direction Générale de la Pharmacie, du Médicament et des Laboratoires",
     "agencyUrl": "http://www.sante.gov.bf",
     "framework": "DGPML regulates medical devices through registration and quality control.",
     "acceptsCE": true,
@@ -2368,7 +2368,7 @@
   "TGO": {
     "name": "Togo",
     "agency": "DPM",
-    "agencyFullName": "Direction de la Pharmacie et du M\u00e9dicament",
+    "agencyFullName": "Direction de la Pharmacie et du Médicament",
     "agencyUrl": "http://www.sante.gouv.tg",
     "framework": "DPM regulates medical devices through registration and quality control.",
     "acceptsCE": true,
@@ -2402,7 +2402,7 @@
   "GNB": {
     "name": "Guinea-Bissau",
     "agency": "DNPM",
-    "agencyFullName": "Dire\u00e7\u00e3o Nacional de Farm\u00e1cia e Medicamentos",
+    "agencyFullName": "Direção Nacional de Farmácia e Medicamentos",
     "agencyUrl": "",
     "framework": "DNPM oversees medical product regulation in Guinea-Bissau.",
     "acceptsCE": true,
@@ -2579,7 +2579,7 @@
   "MRT": {
     "name": "Mauritania",
     "agency": "DPM",
-    "agencyFullName": "Direction de la Pharmacie et du M\u00e9dicament",
+    "agencyFullName": "Direction de la Pharmacie et du Médicament",
     "agencyUrl": "",
     "framework": "DPM oversees pharmaceutical and medical device controls.",
     "acceptsCE": true,
@@ -2596,7 +2596,7 @@
   "GNQ": {
     "name": "Equatorial Guinea",
     "agency": "DNPM",
-    "agencyFullName": "Direcci\u00f3n Nacional de Farmacia y Medicina Tradicional",
+    "agencyFullName": "Dirección Nacional de Farmacia y Medicina Tradicional",
     "agencyUrl": "",
     "framework": "DNPM oversees pharmaceutical and medical device controls.",
     "acceptsCE": true,
@@ -2681,7 +2681,7 @@
   "GRL": {
     "name": "Greenland",
     "agency": "DKMA",
-    "agencyFullName": "Danish Medicines Agency (L\u00e6gemiddelstyrelsen)",
+    "agencyFullName": "Danish Medicines Agency (Lægemiddelstyrelsen)",
     "agencyUrl": "https://laegemiddelstyrelsen.dk/en/",
     "framework": "Greenland is an autonomous territory of the Kingdom of Denmark. Although it left the EEC in 1985 and is not part of the EU, medical device regulation is administered under Danish law by the Danish Medicines Agency (DKMA). CE marking is required for medical devices marketed in Greenland, consistent with Danish/EU standards.",
     "acceptsCE": true,
@@ -2748,7 +2748,7 @@
   "MDG": {
     "name": "Madagascar",
     "agency": "DAMM",
-    "agencyFullName": "Direction de l'Agence du M\u00e9dicament de Madagascar",
+    "agencyFullName": "Direction de l'Agence du Médicament de Madagascar",
     "agencyUrl": "http://www.damm.mg/",
     "framework": "DAMM regulates the pharmaceutical market including medical devices. Registration involves assessing technical documentation and ensuring compliance with quality standards for the local market.",
     "acceptsCE": true,
@@ -2795,7 +2795,7 @@
     "mra": "None"
   },
   "CUW": {
-    "name": "Cura\u00e7ao",
+    "name": "Curaçao",
     "agency": "No Data",
     "agencyFullName": "Data Unavailable or Not Established",
     "agencyUrl": "",
@@ -2913,8 +2913,8 @@
   },
   "ISL": {
     "name": "Iceland",
-    "agency": "Icelandic Medicines Agency (Lyfjastofnun)",
-    "agencyUrl": "https://www.ima.is/",
+    "agency": "EMA / IMA",
+    "agencyUrl": "https://www.ima.is",
     "framework": "As an EEA member, Iceland follows the EU Medical Device Regulation (MDR) 2017/745 and IVDR 2017/746. Devices must carry a CE mark and be registered in EUDAMED.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -2924,7 +2924,8 @@
     "whoListed": "Yes (13 May 2024)",
     "mdsapStatus": "Non-Participant",
     "imdrfStatus": "Non-Member",
-    "mra": "EEA Member"
+    "mra": "EEA Member",
+    "agencyFullName": "Icelandic Medicines Agency"
   },
   "PCN": {
     "name": "Pitcairn Islands",
@@ -3368,7 +3369,7 @@
   "COM": {
     "name": "Comoros",
     "agency": "ONSA",
-    "agencyFullName": "Office National de Sant\u00e9",
+    "agencyFullName": "Office National de Santé",
     "agencyUrl": "",
     "framework": "ONSA regulates health services and product distribution in Comoros.",
     "acceptsCE": true,
@@ -3385,7 +3386,7 @@
   "STP": {
     "name": "Sao Tome and Principe",
     "agency": "DPM",
-    "agencyFullName": "Dire\u00e7\u00e3o da Farm\u00e1cia e do Medicamento",
+    "agencyFullName": "Direção da Farmácia e do Medicamento",
     "agencyUrl": "",
     "framework": "DPM oversees pharmaceutical and medical device controls.",
     "acceptsCE": true,
@@ -3402,7 +3403,7 @@
   "CPV": {
     "name": "Cabo Verde",
     "agency": "ERIS",
-    "agencyFullName": "Entidade Reguladora Independente da Sa\u00fade",
+    "agencyFullName": "Entidade Reguladora Independente da Saúde",
     "agencyUrl": "https://www.eris.cv/",
     "framework": "ERIS regulates medical devices and health products in Cabo Verde.",
     "acceptsCE": true,
@@ -3417,9 +3418,9 @@
     "imdrfSince": ""
   },
   "MLT": {
-    "agency": "EMA / National Competent Authority",
-    "agencyFullName": "National Competent Authority for Malta",
-    "agencyUrl": "https://health.ec.europa.eu/medical-devices-sector_en",
+    "agency": "EMA / MMA",
+    "agencyFullName": "Malta Medicines Authority – Medical Devices Unit",
+    "agencyUrl": "https://www.medicinesauthority.gov.mt",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies for most classes.",
     "acceptsCE": true,
     "acceptsFDA": false,
@@ -3912,7 +3913,7 @@
   "GUF": {
     "name": "French Guiana",
     "agency": "EMA / ANSM",
-    "agencyFullName": "Agence Nationale de S\u00e9curit\u00e9 du M\u00e9dicament et des Produits de Sant\u00e9",
+    "agencyFullName": "Agence Nationale de Sécurité du Médicament et des Produits de Santé",
     "agencyUrl": "https://ansm.sante.fr/",
     "framework": "As an overseas department/region of France, French Guiana is subject directly to the European Union's medical device regulations (MDR 2017/745) and requires standard CE marking processes.",
     "acceptsCE": true,
@@ -3929,7 +3930,7 @@
   "FRA": {
     "name": "France",
     "agency": "EMA / ANSM",
-    "agencyFullName": "Agence Nationale de S\u00e9curit\u00e9 du M\u00e9dicament et des Produits de Sant\u00e9",
+    "agencyFullName": "Agence Nationale de Sécurité du Médicament et des Produits de Santé",
     "agencyUrl": "https://ansm.sante.fr/",
     "framework": "Regulated under the EU Medical Device Regulation (MDR 2017/745) and IVDR. Requires CE marking via Notified Bodies.",
     "acceptsCE": true,
