@@ -1,3 +1,5 @@
+//Only use this for deploying via Github-pages. Change the secret.//
+
 name: Deploy to GitHub Pages
 
 on:
